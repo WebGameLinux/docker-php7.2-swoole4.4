@@ -29,3 +29,4 @@ if [ "$?" != "0" ];then
   echo "push image failed"
   exit 1
 fi
+
