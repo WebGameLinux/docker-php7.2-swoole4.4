@@ -1,0 +1,4 @@
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib
+deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib
