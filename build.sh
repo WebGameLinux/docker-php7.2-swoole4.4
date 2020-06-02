@@ -11,22 +11,12 @@ fi
 
 docker build -t "${image}"  .  --label=version:"${version}" --build-arg work_dir="${curDir}"
 
-if [ "$?" != "0" ];then
-  echo "build failed"
+ok=$(docker image ls|grep "${image}")
+
+if [ "${ok}" == "x" ];then
+  echo "build failed \n"
   exit 1
 fi
 
-docker tag ${image} ${registry}/${dockerTag}
-
-if [ "$?" != "0" ];then
-  echo "tag failed"
-  exit 1
-fi
-
-docker push ${registry}/${dockerTag}
-
-if [ "$?" != "0" ];then
-  echo "push image failed"
-  exit 1
-fi
+docker tag ${image} ${registry}/${dockerTag} && docker push ${registry}/${dockerTag}
 
