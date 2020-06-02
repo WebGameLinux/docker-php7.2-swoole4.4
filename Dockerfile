@@ -115,8 +115,6 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 WORKDIR /var/www
 
-# export ports
-EXPOSE 8080
 # export volumes
 VOLUME /var/www/app
 
