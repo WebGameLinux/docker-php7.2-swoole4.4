@@ -2,7 +2,7 @@
 
 curDir=$(cd `dirname "$0"`; pwd)
 
-source ./scripts/envs.sh
+source ${curDir}/scripts/env.sh
 
 if [ "${image}" == "x" ];then
     # shellcheck disable=SC2154
