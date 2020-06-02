@@ -58,10 +58,10 @@ ENV APP_ENV=${app_env:-"test"} \
     MY_LIBS=${install_libs:-" libz-dev libssl-dev libnghttp2-dev libpcre3-dev libjpeg-dev libpng-dev libfreetype6-dev libmagickwand-dev"} \
     PHP_EXT=${install_php_exts:-" pcntl bcmath gd pdo_mysql mbstring sockets zip sysvmsg sysvsem sysvshm "}
 
-ADD .  /var/www/code
-
 # source switch
-ADD deploy/sources.list /etc/apt/sources.list
+ADD sources.list /etc/apt/sources.list
+# endtrypoint
+COPY endtrypoint.sh /usr/bin/endtrypoint.sh
 
 # Libs -y --no-install-recommends
 RUN  echo "nameserver 114.114.114.114 \nnameserver 8.8.8.8" >> /etc/resolv.conf \
@@ -125,5 +125,5 @@ WORKDIR /var/www
 VOLUME /var/www/app
 
 # 启动脚本
-ENTRYPOINT /usr/bin/endtryponit.sh
+ENTRYPOINT /usr/bin/endtrypoint.sh
 ```

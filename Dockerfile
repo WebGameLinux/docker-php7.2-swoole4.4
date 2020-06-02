@@ -55,7 +55,7 @@ ENV APP_ENV=${app_env:-"test"} \
 # source switch
 ADD sources.list /etc/apt/sources.list
 # endtrypoint
-COPY endtryponit.sh /usr/bin/endtryponit.sh
+COPY endtrypoint.sh /usr/bin/endtrypoint.sh
 
 # Libs -y --no-install-recommends
 RUN  echo "nameserver 114.114.114.114 \nnameserver 8.8.8.8" >> /etc/resolv.conf \
@@ -119,5 +119,5 @@ WORKDIR /var/www
 VOLUME /var/www/app
 
 # 启动脚本
-ENTRYPOINT /usr/bin/endtryponit.sh
+ENTRYPOINT /usr/bin/endtrypoint.sh
 
