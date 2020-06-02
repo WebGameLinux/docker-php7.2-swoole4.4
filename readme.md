@@ -119,8 +119,10 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && echo "${TIMEZONE}" > /etc/timezone \
     && echo "[Date]\ndate.timezone=${TIMEZONE}" > /usr/local/etc/php/conf.d/timezone.ini
 
+WORKDIR /var/www
+
 # export volumes
-VOLUME ${app_dir}
+VOLUME /var/www/app
 
 # 启动脚本
 ENTRYPOINT /usr/bin/endtryponit.sh
